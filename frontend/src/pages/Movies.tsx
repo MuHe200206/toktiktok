@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, Star } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 import { useMovieContext } from '../context/MovieContext';
 import MovieCard from '../components/MovieCard';
 

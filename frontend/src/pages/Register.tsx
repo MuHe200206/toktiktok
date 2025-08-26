@@ -212,13 +212,13 @@ const Register: React.FC = () => {
             />
             <label htmlFor="terms" className="ml-2 block text-sm text-gray-300">
               I agree to the{' '}
-              <a href="#" className="font-medium text-netflix-red hover:text-red-400 transition-colors">
+              <button type="button" className="font-medium text-netflix-red hover:text-red-400 transition-colors">
                 Terms of Service
-              </a>{' '}
+              </button>{' '}
               and{' '}
-              <a href="#" className="font-medium text-netflix-red hover:text-red-400 transition-colors">
+              <button type="button" className="font-medium text-netflix-red hover:text-red-400 transition-colors">
                 Privacy Policy
-              </a>
+              </button>
             </label>
           </div>
 
