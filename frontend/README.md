@@ -1,62 +1,56 @@
-# Netflix-like Frontend (React)
+# TokTikTok Frontend
 
-This is the frontend application for a Netflix-like streaming platform built with React, TypeScript, and Tailwind CSS.
+A Netflix-like streaming service frontend built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- **Modern UI/UX**: Netflix-inspired design with smooth animations and transitions
-- **Responsive Design**: Mobile-first approach that works on all devices
-- **Movie Browsing**: Browse movies by genre, search functionality, and detailed movie pages
-- **User Authentication**: Login and registration forms (UI ready, backend integration pending)
-- **Interactive Components**: Hover effects, loading states, and smooth transitions
-- **TypeScript**: Full type safety and better development experience
+- 🎬 **Modern UI/UX**: Netflix-inspired design with smooth animations and responsive layout
+- 🔐 **Authentication**: User registration, login, and profile management
+- 📱 **Responsive Design**: Mobile-first approach with Tailwind CSS
+- 🎯 **Content Discovery**: Browse, search, and filter movies and shows
+- ❤️ **Personalization**: Watch history, favorites, and user preferences
+- ⚡ **Fast Performance**: Built with Vite for optimal development and build performance
 
 ## Tech Stack
 
-- **React 18** - Modern React with hooks and functional components
-- **TypeScript** - Type-safe JavaScript development
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
-- **React Router** - Client-side routing for single-page application
-- **Axios** - HTTP client for API communication
-- **Lucide React** - Beautiful and consistent icon library
-- **Framer Motion** - Animation library for smooth transitions
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom Netflix-inspired theme
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
+- **HTTP Client**: Axios (for API calls)
 
-## Prerequisites
+## Getting Started
 
-- Node.js 16+ and npm
-- Backend API running (C# .NET 8 backend)
-- Modern web browser
+### Prerequisites
 
-## Setup Instructions
+- Node.js 16+ 
+- npm or yarn
 
-### 1. Install Dependencies
+### Installation
 
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-### 2. Environment Configuration
-
-Create a `.env` file in the root directory:
-
-```env
-REACT_APP_API_URL=https://localhost:7000/api
-```
-
-**Note**: Update the API URL to match your backend configuration.
-
-### 3. Start Development Server
-
+2. Start development server:
 ```bash
-npm start
+npm run dev
 ```
 
-The application will open at `http://localhost:3000`
+3. Open [http://localhost:5173](http://localhost:5173) in your browser
 
-### 4. Build for Production
+### Build for Production
 
 ```bash
 npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
 ```
 
 ## Project Structure
@@ -64,149 +58,68 @@ npm run build
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── Navbar.tsx      # Navigation bar component
-│   └── MovieCard.tsx   # Individual movie display component
-├── context/            # React context for state management
-│   └── MovieContext.tsx # Movie data and API calls
+│   └── Navbar.tsx     # Navigation bar component
+├── contexts/           # React contexts
+│   └── AuthContext.tsx # Authentication context
 ├── pages/              # Page components
-│   ├── Home.tsx        # Homepage with hero section
-│   ├── Movies.tsx      # Movies listing with filters
-│   ├── MovieDetail.tsx # Individual movie details
-│   ├── Login.tsx       # User login form
-│   └── Register.tsx    # User registration form
-├── App.tsx             # Main application component
-├── index.tsx           # Application entry point
-└── index.css           # Global styles and Tailwind imports
+│   ├── Home.tsx       # Landing page
+│   ├── Browse.tsx     # Content browsing page
+│   ├── MovieDetail.tsx # Individual movie/show page
+│   ├── Login.tsx      # User login page
+│   ├── Register.tsx   # User registration page
+│   └── Profile.tsx    # User profile page
+├── App.tsx            # Main app component with routing
+├── main.tsx           # App entry point
+└── index.css          # Global styles and Tailwind imports
 ```
 
-## Key Components
+## Custom Tailwind Theme
 
-### Navbar
-- Netflix-style navigation with logo
-- Search functionality
-- Mobile-responsive menu
-- User authentication links
+The project includes a custom Netflix-inspired color palette:
 
-### Home Page
-- Hero section with featured movie
-- Movie rows organized by genre
-- Responsive grid layout
-- Smooth hover animations
-
-### Movies Page
-- Advanced search and filtering
-- Genre-based categorization
-- Responsive grid layout
-- Loading states and error handling
-
-### Movie Detail Page
-- Full movie information display
-- Hero section with background image
-- Action buttons (Play, Add to List)
-- Technical details and metadata
-
-## Styling
-
-The application uses Tailwind CSS with custom Netflix-inspired color scheme:
-
-- **Primary Red**: `#E50914` (Netflix brand color)
-- **Background**: `#141414` (Dark theme)
-- **Text**: White and gray variations
-- **Accents**: Custom hover effects and transitions
+- `netflix-red`: Primary brand color (#E50914)
+- `netflix-black`: Main background (#000000)
+- `netflix-dark`: Secondary background (#141414)
+- `netflix-gray`: Text and borders (#808080)
+- `netflix-light-gray`: Secondary text (#E5E5E5)
 
 ## API Integration
 
-The frontend is designed to work with the C# .NET backend API:
+The frontend is designed to work with a C# .NET backend API. Current endpoints include:
 
-- **Base URL**: Configurable via environment variables
-- **Endpoints**: `/api/Movies`, `/api/Users`, etc.
-- **CORS**: Configured for cross-origin requests
-- **Error Handling**: Comprehensive error states and loading indicators
+- `POST /api/auth/login` - User authentication
+- `POST /api/auth/register` - User registration
+- `GET /api/movies` - Fetch movie listings
+- `GET /api/movies/{id}` - Fetch movie details
 
-## Responsive Design
+## Development Notes
 
-- **Mobile First**: Designed for mobile devices first
-- **Breakpoints**: Tailwind CSS responsive utilities
-- **Touch Friendly**: Optimized for touch interactions
-- **Performance**: Optimized images and lazy loading
-
-## Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## Development
-
-### Available Scripts
-
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
-- `npm run eject` - Eject from Create React App
-
-### Code Style
-
-- **TypeScript**: Strict mode enabled
-- **ESLint**: Code quality and consistency
-- **Prettier**: Code formatting
-- **Components**: Functional components with hooks
+- **Mock Data**: Currently uses mock data for development. Replace with actual API calls when backend is ready.
+- **Authentication**: JWT-based authentication system with local storage for token management.
+- **Responsive Design**: Mobile-first approach with breakpoints for tablet and desktop.
+- **Performance**: Optimized with React.memo, useCallback, and useMemo where appropriate.
 
 ## Deployment
 
-### Azure App Service
+This frontend is designed to be deployed to Azure App Service alongside the .NET backend.
 
-1. Build the application: `npm run build`
-2. Deploy the `build` folder to Azure App Service
-3. Configure environment variables in Azure
-4. Set up custom domain if needed
+### Build and Deploy
 
-### Environment Variables
+1. Build the project:
+```bash
+npm run build
+```
 
-- `REACT_APP_API_URL` - Backend API endpoint
-- `REACT_APP_ENVIRONMENT` - Production/Development mode
-
-## Future Enhancements
-
-- **User Authentication**: JWT token integration
-- **Watchlist Management**: Save and manage favorite movies
-- **Video Player**: Integrated video streaming
-- **Recommendations**: AI-powered movie suggestions
-- **Social Features**: User reviews and ratings
-- **Offline Support**: Service worker for offline viewing
-
-## Troubleshooting
-
-### Common Issues
-
-1. **API Connection Errors**: Check backend URL and CORS configuration
-2. **Build Failures**: Ensure all dependencies are installed
-3. **Styling Issues**: Verify Tailwind CSS is properly configured
-4. **Routing Problems**: Check React Router configuration
-
-### Performance Tips
-
-- Use React.memo for expensive components
-- Implement lazy loading for routes
-- Optimize images and assets
-- Monitor bundle size with webpack analyzer
+2. Deploy the `dist/` folder to your Azure App Service
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+1. Follow the existing code style and patterns
+2. Use TypeScript for all new components
+3. Ensure responsive design works on all screen sizes
+4. Add proper error handling and loading states
+5. Test authentication flows thoroughly
 
 ## License
 
-This project is for educational purposes. Netflix is a registered trademark of Netflix, Inc.
-
-## Support
-
-For questions or issues:
-- Check the troubleshooting section
-- Review the backend API documentation
-- Ensure all prerequisites are met
+This project is part of the TokTikTok streaming service.
